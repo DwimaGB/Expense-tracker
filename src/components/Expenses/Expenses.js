@@ -1,5 +1,5 @@
 import ExpenseItem from "./ExpenseItem";
-import Card from "./Card";
+import Card from "../UI/Card";
 import './Expenses.css';
 
 export default function Expenses(props) {
@@ -8,9 +8,8 @@ export default function Expenses(props) {
     return (
         <Card className="expenses">
             {expenses.map(expenseItem =>(
-                <ExpenseItem title={expenseItem.title} amount={expenseItem.amount} date={expenseItem.date.toISOString()}/>
+                <ExpenseItem key={expenseItem.id} title={expenseItem.title} amount={expenseItem.amount} date={expenseItem.date.toISOString()}/>
             ))}
-
         </Card>
 
     );
