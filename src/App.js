@@ -1,5 +1,6 @@
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
+import { useState } from 'react';
 
 function App() {
   const expenses = [
@@ -13,7 +14,7 @@ function App() {
       id: 'e2', 
       title: 'New TV', 
       amount: 799.49, 
-      date: new Date(2021, 2, 12) },
+      date: new Date() },
     {
       id: 'e3',
       title: 'Car Insurance',
@@ -28,9 +29,14 @@ function App() {
     },
   ];
 
+  const addNewExpense = (expenseData)=>{
+    expenses.push(expenseData);
+    console.log(expenses);
+  }
+
   return (
     <div>
-      <NewExpense/>
+      <NewExpense expenses={expenses} onAddNewExpense={addNewExpense}/>
       <Expenses expenses={expenses}></Expenses>
     </div>
   );
