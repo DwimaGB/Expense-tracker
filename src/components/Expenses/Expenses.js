@@ -17,9 +17,11 @@ export default function Expenses(props) {
     return (
         <Card className="expenses">
             <ExpensesFilter selected={filteredYear} onDateSelected={dateHandler}></ExpensesFilter>
-            {expenses.map(expenseItem => (
-                <ExpenseItem key={expenseItem.id} title={expenseItem.title} amount={expenseItem.amount} date={expenseItem.date.toISOString()} filteredYear={filteredYear} />
-            ))}
+            {expenses.map(expenseItem => {
+                if(expenseItem.date.getFullYear().toString() === filteredYear){
+                    return <ExpenseItem key={expenseItem.id} title={expenseItem.title} amount={expenseItem.amount} date={expenseItem.date} filteredYear={filteredYear} />
+                }
+            })}
         </Card>
     );
 }
