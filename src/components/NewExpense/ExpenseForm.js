@@ -39,7 +39,7 @@ export default function ExpenseForm(props) {
 
         const expenseData = {
             title: input.enteredTitle,
-            amount: input.enteredAmount,
+            amount: +input.enteredAmount, 
             date: new Date(input.enteredDate),
         };
 
@@ -54,7 +54,7 @@ export default function ExpenseForm(props) {
 
         setShowExpenseForm(false); // hiding the form after adding new expense
     }
-    
+
     if(isFormVisible){
         return (
             <form onSubmit={submitHandler}>
