@@ -31,7 +31,7 @@ export default function ExpenseForm(props) {
     const showNewExpenseForm = ()=>{
         setShowExpenseForm(true);
     }
-    
+
 
     // Form submit
     const submitHandler = (event) => {
@@ -52,7 +52,7 @@ export default function ExpenseForm(props) {
         });
 
 
-        setShowExpenseForm(false); // hiding the form
+        setShowExpenseForm(false); // hiding the form after adding new expense
     }
     
     if(isFormVisible){
